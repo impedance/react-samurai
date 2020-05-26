@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  flex-direction: row;
+  padding: 10px;
+}
+.dialogs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dialog {
+  margin-bottom: 10px;
+}
+.dialog_active {
+  color: gold;
+}
+.messages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.message {
+}

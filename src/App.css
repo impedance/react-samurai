@@ -10,6 +10,6 @@
   margin: 0 auto;
 }
 .app-wrapper-content {
-  background-color: lightblue;
+  background-color: lightskyblue;
   grid-area: content;
 }

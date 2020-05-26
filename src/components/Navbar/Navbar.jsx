@@ -1,21 +1,45 @@
 import React from "react";
-import classes from "./Navbar.module.css";
+import cn from "./Navbar.module.css";
+import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className={classes.main_nav}>
+    <nav className={cn.main__nav}>
       <ul>
-        <li className={classes.nav_item}>
-          <a href="/profile">Profile</a>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/profile">
+            Profile
+          </NavLink>
         </li>
-        <li className={classes.nav_item}>
-          <a href="/dialogs">Messages</a>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/dialogs">
+            Messages
+          </NavLink>
         </li>
-        <li className={classes.nav_item}>
-          <a href="#">News</a>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/news">
+            News
+          </NavLink>
         </li>
-        <li className={classes.nav_item}>
-          <a href="#">Music</a>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/music">
+            Music
+          </NavLink>
+        </li>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/settings">
+            Settings
+          </NavLink>
+        </li>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/friends">
+            Friends
+          </NavLink>
+        </li>
+        <li className={cn.nav__item}>
+          <NavLink activeClassName={cn.link_active} to="/videos">
+            Videos
+          </NavLink>
         </li>
       </ul>
     </nav>

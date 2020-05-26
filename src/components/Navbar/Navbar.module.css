@@ -1,15 +1,18 @@
-.main_nav {
+.main__nav {
   background-color: tan;
 
   padding-top: 20px;
   grid-area: navigation;
 }
-.nav_item {
+.nav__item {
   list-style: none;
   margin-bottom: 10px;
   font-size: 20px;
 }
-.nav_item a {
+.nav__item a {
   text-decoration: none;
   color: white;
+}
+.nav__item a.link_active {
+  color: gold;
 }

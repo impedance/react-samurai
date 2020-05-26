@@ -1,0 +1,10 @@
+.post {
+  color: red;
+}
+.post img {
+  height: 50px;
+  width: 50px;
+}
+.post_content {
+  color: black;
+}

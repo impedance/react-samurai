@@ -11,7 +11,7 @@ import { News } from "./components/News/News";
 import { Friends } from "./components/Friends/Friends";
 import { Videos } from "./components/Videos/Videos";
 
-const App = () => {
+const App = ({ messages, posts, users }) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -19,8 +19,12 @@ const App = () => {
         <Navbar />
         <div className="app-wrapper-content">
           <Route exact path="/" component={Profile} />
-          <Route path="/profile" component={Profile} />
-          <Route exact path="/dialogs" component={Dialogs} />
+          <Route path="/profile" render={() => <Profile posts={posts} />} />
+          <Route
+            exact
+            path="/dialogs"
+            render={() => <Dialogs messages={messages} users={users} />}
+          />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
           <Route path="/settings" component={Settings} />

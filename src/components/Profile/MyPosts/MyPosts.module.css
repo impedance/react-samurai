@@ -1,3 +1,6 @@
+.container {
+  padding: 10px;
+}
 .posts_list {
   list-style: none;
   padding: 0;

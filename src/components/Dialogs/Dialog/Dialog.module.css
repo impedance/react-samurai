@@ -1,0 +1,6 @@
+.dialog {
+  margin-bottom: 10px;
+}
+.dialog_active {
+  color: gold;
+}

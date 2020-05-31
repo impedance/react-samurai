@@ -1,8 +1,9 @@
 import React from "react";
 import cn from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import { Friends } from "../Friends/Friends";
 
-export const Navbar = () => {
+export const Navbar = ({ friends }) => {
   return (
     <nav className={cn.main__nav}>
       <ul>
@@ -32,9 +33,11 @@ export const Navbar = () => {
           </NavLink>
         </li>
         <li className={cn.nav__item}>
-          <NavLink activeClassName={cn.link_active} to="/friends">
+          {/*           <NavLink activeClassName={cn.link_active} to="/friends">
             Friends
-          </NavLink>
+          </NavLink> */}
+          <a href="#">Friends</a>
+          <Friends friends={friends} />
         </li>
         <li className={cn.nav__item}>
           <NavLink activeClassName={cn.link_active} to="/videos">

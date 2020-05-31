@@ -16,7 +16,23 @@
   color: gold;
 }
 .messages {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.messages li {
+  border: 1px solid green;
+  padding: 10px;
+  border-radius: 0 10px 10px 10px;
+  margin: 5px;
+}
+
+.messages li:nth-child(n) {
+  align-self: flex-start;
+}
+.messages li:nth-child(2n) {
+  align-self: flex-end;
 }

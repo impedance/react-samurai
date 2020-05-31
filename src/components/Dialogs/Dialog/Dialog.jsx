@@ -1,7 +1,6 @@
 import React from "react";
 import cn from "./Dialog.module.css";
 import { NavLink } from "react-router-dom";
-import avatar from "../../../images/ninja.png";
 
 export const Dialog = ({ id, name }) => {
   const path = `/dialogs/${id}`;

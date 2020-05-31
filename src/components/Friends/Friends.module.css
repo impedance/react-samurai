@@ -1,0 +1,10 @@
+.friends_list {
+  display: flex;
+  list-style: none;
+
+  margin: 0;
+}
+.friends_item {
+  font-size: 18px;
+  margin-right: 5px;
+}

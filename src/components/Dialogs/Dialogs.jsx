@@ -11,9 +11,9 @@ export const Dialogs = ({ messages, users }) => {
     return <Message message={message} key={id} />;
   });
   return (
-    <article className={cn.container}>
+    <section className={cn.container}>
       <ul className={cn.dialogs}>{usersElements}</ul>
       <ul className={cn.messages}>{messageElements}</ul>
-    </article>
+    </section>
   );
 };

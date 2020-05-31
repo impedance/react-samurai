@@ -1,10 +1,13 @@
 .friends_list {
   display: flex;
   list-style: none;
-
+  padding: 0;
+  padding-left: 10px;
   margin: 0;
 }
 .friends_item {
-  font-size: 18px;
+  color: lightslategrey;
+  font-size: 16px;
+  margin-top: 5px;
   margin-right: 5px;
 }

@@ -11,19 +11,31 @@ import { News } from "./components/News/News";
 import { Friends } from "./components/Friends/Friends";
 import { Videos } from "./components/Videos/Videos";
 
-const App = ({ messages, posts, users }) => {
+const App = ({ state }) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route exact path="/" component={Profile} />
-          <Route path="/profile" render={() => <Profile posts={posts} />} />
+          <Route
+            exact
+            path="/"
+            render={() => <Profile posts={state.profilePage.posts} />}
+          />
+          <Route
+            path="/profile"
+            render={() => <Profile posts={state.profilePage.posts} />}
+          />
           <Route
             exact
             path="/dialogs"
-            render={() => <Dialogs messages={messages} users={users} />}
+            render={() => (
+              <Dialogs
+                messages={state.dialogsPage.messages}
+                users={state.dialogsPage.users}
+              />
+            )}
           />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />

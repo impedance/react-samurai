@@ -5,10 +5,10 @@ import { Dialog } from "./Dialog/Dialog";
 
 export const Dialogs = ({ messages, users }) => {
   const usersElements = users.map(({ name, id }) => {
-    return <Dialog id={id} name={name} />;
+    return <Dialog key={id} id={id} name={name} />;
   });
   const messageElements = messages.map(({ message, id }) => {
-    return <Message message={message} id={id} />;
+    return <Message message={message} key={id} />;
   });
   return (
     <article className={cn.container}>

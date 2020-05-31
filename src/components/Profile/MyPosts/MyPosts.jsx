@@ -4,7 +4,7 @@ import { Post } from "./Post/Post";
 
 export const MyPosts = ({ posts }) => {
   const postElements = posts.map(({ message, likesCount, id }) => {
-    return <Post message={message} id={id} likesCount={likesCount} />;
+    return <Post message={message} key={id} likesCount={likesCount} />;
   });
   return (
     <div className={cn.container}>

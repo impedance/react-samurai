@@ -13,7 +13,7 @@ export const Navbar = () => {
         </li>
         <li className={cn.nav__item}>
           <NavLink activeClassName={cn.link_active} to="/dialogs">
-            Messages
+            Dialogs
           </NavLink>
         </li>
         <li className={cn.nav__item}>

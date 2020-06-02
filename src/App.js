@@ -12,12 +12,11 @@ import { Friends } from "./components/Friends/Friends";
 import { Videos } from "./components/Videos/Videos";
 
 const App = ({ state }) => {
-  console.log(state.friendsList.friends);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar friends={state.friendsList.friends} />
+        <Navbar friends={state.sidebar.friends} />
         <div className="app-wrapper-content">
           <Route
             exact

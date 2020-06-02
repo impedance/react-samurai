@@ -12,8 +12,21 @@ export const Dialogs = ({ messages, users }) => {
   });
   return (
     <section className={cn.container}>
-      <ul className={cn.dialogs}>{usersElements}</ul>
-      <ul className={cn.messages}>{messageElements}</ul>
+      <section className={cn.dialogs}>
+        <ul className={cn.dialogs_list}>{usersElements}</ul>
+      </section>
+      <section className={cn.messages}>
+        <ul className={cn.messages_list}>{messageElements}</ul>
+
+        <textarea
+          className={cn.message_area}
+          name=""
+          id=""
+          cols="30"
+          rows="5"
+        ></textarea>
+        <button>Send</button>
+      </section>
     </section>
   );
 };

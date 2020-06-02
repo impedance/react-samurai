@@ -21,7 +21,7 @@ export const state = {
       { id: 3, message: "Helloo fie he", likesCount: 3 },
     ],
   },
-  friendsList: {
+  sidebar: {
     friends: [
       { id: 1, name: "Olya" },
       { id: 2, name: "Liza" },

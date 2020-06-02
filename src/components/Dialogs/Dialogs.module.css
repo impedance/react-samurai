@@ -4,7 +4,7 @@
   flex-direction: row;
   padding: 10px;
 }
-.dialogs {
+.dialogs_list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -15,19 +15,23 @@
 .dialog_active {
   color: gold;
 }
-.messages {
+.messages_list {
   display: flex;
   flex-direction: column;
   max-width: 200px;
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 50px;
 }
 .messages li {
   border: 1px solid green;
   padding: 10px;
   border-radius: 0 10px 10px 10px;
   margin: 5px;
+}
+.message_area {
+  border-radius: 15px;
 }
 
 .messages li:nth-child(n) {

@@ -1,3 +1,5 @@
+import { renderEntireTree } from "./render";
+
 export const state = {
   dialogsPage: {
     messages: [
@@ -28,4 +30,13 @@ export const state = {
       { id: 3, name: "Tanya" },
     ],
   },
+};
+export const addPost = (postMessage) => {
+  const newPost = {
+    id: 5,
+    message: postMessage,
+    likesCount: 0,
+  };
+  state.profilePage.posts = [...state.profilePage.posts, newPost];
+  renderEntireTree(state);
 };

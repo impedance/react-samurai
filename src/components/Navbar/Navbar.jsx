@@ -33,10 +33,7 @@ export const Navbar = ({ friends }) => {
           </NavLink>
         </li>
         <li className={cn.nav__item}>
-          {/*           <NavLink activeClassName={cn.link_active} to="/friends">
-            Friends
-          </NavLink> */}
-          <a href="#">Friends</a>
+          <a href="/friendsu">Friends</a>
           <Friends friends={friends} />
         </li>
         <li className={cn.nav__item}>

@@ -11,23 +11,27 @@ import { News } from "./components/News/News";
 import { Friends } from "./components/Friends/Friends";
 import { Videos } from "./components/Videos/Videos";
 
-const App = ({ state, addPost }) => {
+export const App = ({
+  addMessage,
+  updateNewMessageText,
+  state,
+  addPost,
+  updateNewPostText,
+}) => {
   return (
     <div className="app-wrapper">
       <Header />
       <Navbar friends={state.sidebar.friends} />
       <div className="app-wrapper-content">
         <Route
-          exact
-          path="/"
-          render={() => (
-            <Profile posts={state.profilePage.posts} addPost={addPost} />
-          )}
-        />
-        <Route
           path="/profile"
           render={() => (
-            <Profile posts={state.profilePage.posts} addPost={addPost} />
+            <Profile
+              posts={state.profilePage.posts}
+              newPostText={state.profilePage.newPostText}
+              updateNewPostText={updateNewPostText}
+              addPost={addPost}
+            />
           )}
         />
         <Route
@@ -37,6 +41,9 @@ const App = ({ state, addPost }) => {
             <Dialogs
               messages={state.dialogsPage.messages}
               users={state.dialogsPage.users}
+              newMessageText={state.dialogsPage.newMessageText}
+              updateNewMessageText={updateNewMessageText}
+              addMessage={addMessage}
             />
           )}
         />
@@ -49,5 +56,3 @@ const App = ({ state, addPost }) => {
     </div>
   );
 };
-
-export default App;

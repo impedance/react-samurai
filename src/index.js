@@ -1,5 +1,34 @@
+import React from "react";
+import ReactDOM from "react-dom";
 import "./index.css";
-import { renderEntireTree } from "./render";
-import { state } from "./state";
+import { App } from "./App";
+import { BrowserRouter } from "react-router-dom";
+import {
+  addPost,
+  updateNewMessageText,
+  addMessage,
+  updateNewPostText,
+  state,
+  subscribe,
+} from "./state";
 
-renderEntireTree(state);
+export const reRenderEntireTree = (state) => {
+  console.log(state);
+  ReactDOM.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App
+          state={state}
+          addPost={addPost}
+          updateNewPostText={updateNewPostText}
+          updateNewMessageText={updateNewMessageText}
+          addMessage={addMessage}
+        />
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+};
+
+reRenderEntireTree(state);
+subscribe(reRenderEntireTree);

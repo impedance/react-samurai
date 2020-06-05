@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
 
-export const MyPosts = ({ posts, addPost }) => {
-  const [text, setText] = useState("");
-
+export const MyPosts = ({ updateNewPostText, posts, newPostText, addPost }) => {
   const postElements = posts.map(({ message, likesCount, id }) => {
     return <Post message={message} key={id} likesCount={likesCount} />;
   });
+  const newPostElement = React.createRef();
   const onAddPost = () => {
-    addPost(text);
-    setText("");
+    addPost();
   };
 
   return (
@@ -18,12 +16,13 @@ export const MyPosts = ({ posts, addPost }) => {
       <h3>My posts</h3>
       <div className={cn.posts_form}>
         <textarea
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => updateNewPostText(e.target.value)}
+          ref={newPostElement}
           name=""
           cols="30"
           rows="5"
-          value={text}
-        ></textarea>
+          value={newPostText}
+        />
         <br />
         <button onClick={onAddPost}>Add post</button>
       </div>

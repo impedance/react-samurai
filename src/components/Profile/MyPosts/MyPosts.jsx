@@ -1,14 +1,21 @@
 import React from "react";
 import cn from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
+import {
+  updateNewPostTextActionCreator,
+  addPostActionCreator,
+} from "../../../state";
 
-export const MyPosts = ({ updateNewPostText, posts, newPostText, addPost }) => {
+export const MyPosts = ({ posts, dispatch, newPostText }) => {
   const postElements = posts.map(({ message, likesCount, id }) => {
     return <Post message={message} key={id} likesCount={likesCount} />;
   });
-  const newPostElement = React.createRef();
   const onAddPost = () => {
-    addPost();
+    dispatch(addPostActionCreator());
+  };
+  const onPostChange = (event) => {
+    const action = updateNewPostTextActionCreator(event.target.value);
+    dispatch(action);
   };
 
   return (
@@ -16,8 +23,7 @@ export const MyPosts = ({ updateNewPostText, posts, newPostText, addPost }) => {
       <h3>My posts</h3>
       <div className={cn.posts_form}>
         <textarea
-          onChange={(e) => updateNewPostText(e.target.value)}
-          ref={newPostElement}
+          onChange={onPostChange}
           name=""
           cols="30"
           rows="5"

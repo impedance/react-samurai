@@ -11,13 +11,7 @@ import { News } from "./components/News/News";
 import { Friends } from "./components/Friends/Friends";
 import { Videos } from "./components/Videos/Videos";
 
-export const App = ({
-  addMessage,
-  updateNewMessageText,
-  state,
-  addPost,
-  updateNewPostText,
-}) => {
+export const App = ({ state, dispatch, updateNewMessageText, addMessage }) => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -27,10 +21,9 @@ export const App = ({
           path="/profile"
           render={() => (
             <Profile
-              posts={state.profilePage.posts}
+              dispatch={dispatch}
               newPostText={state.profilePage.newPostText}
-              updateNewPostText={updateNewPostText}
-              addPost={addPost}
+              posts={state.profilePage.posts}
             />
           )}
         />
@@ -42,8 +35,7 @@ export const App = ({
               messages={state.dialogsPage.messages}
               users={state.dialogsPage.users}
               newMessageText={state.dialogsPage.newMessageText}
-              updateNewMessageText={updateNewMessageText}
-              addMessage={addMessage}
+              dispatch={dispatch}
             />
           )}
         />

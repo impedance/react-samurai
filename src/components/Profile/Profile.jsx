@@ -2,16 +2,12 @@ import React from "react";
 import { MyPosts } from "./MyPosts/MyPosts";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 
-export const Profile = ({ posts, addPost, updateNewPostText, newPostText }) => {
+export const Profile = ({ dispatch, posts, newPostText }) => {
+  
   return (
     <div>
       <ProfileInfo />
-      <MyPosts
-        posts={posts}
-        addPost={addPost}
-        newPostText={newPostText}
-        updateNewPostText={updateNewPostText}
-      />
+      <MyPosts posts={posts} dispatch={dispatch} newPostText={newPostText} />
     </div>
   );
 };

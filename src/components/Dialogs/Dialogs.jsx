@@ -2,22 +2,24 @@ import React from "react";
 import cn from "./Dialogs.module.css";
 import { Message } from "./Message/Message";
 import { Dialog } from "./Dialog/Dialog";
+import {
+  addMessageActionCreator,
+  updateNewMessageActionCreator,
+} from "../../state";
 
-export const Dialogs = ({
-  newMessageText,
-  messages,
-  users,
-  addMessage,
-  updateNewMessageText,
-}) => {
+export const Dialogs = ({ newMessageText, messages, dispatch, users }) => {
   const usersElements = users.map(({ name, id }) => {
     return <Dialog key={id} id={id} name={name} />;
   });
   const messageElements = messages.map(({ message, id }) => {
     return <Message message={message} key={id} />;
   });
-  const sendMessage = () => {
-    addMessage();
+  const onChangeMessageText = (event) => {
+    const text = event.target.value;
+    dispatch(updateNewMessageActionCreator(text));
+  };
+  const onSendMessage = () => {
+    dispatch(addMessageActionCreator());
   };
   return (
     <section className={cn.container}>
@@ -27,7 +29,7 @@ export const Dialogs = ({
       <section className={cn.messages}>
         <ul className={cn.messages_list}>{messageElements}</ul>
         <textarea
-          onChange={(e) => updateNewMessageText(e.target.value)}
+          onChange={onChangeMessageText}
           className={cn.message_area}
           name=""
           id=""
@@ -35,7 +37,7 @@ export const Dialogs = ({
           rows="5"
           value={newMessageText}
         ></textarea>
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={onSendMessage}>Send</button>
       </section>
     </section>
   );

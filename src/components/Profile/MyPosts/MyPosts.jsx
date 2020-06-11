@@ -1,21 +1,17 @@
 import React from "react";
 import cn from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
-import {
-  updateNewPostTextActionCreator,
-  addPostActionCreator,
-} from "../../../state";
 
-export const MyPosts = ({ posts, dispatch, newPostText }) => {
+export const MyPosts = ({ posts, newPostText, updateNewPostText, addPost }) => {
   const postElements = posts.map(({ message, likesCount, id }) => {
     return <Post message={message} key={id} likesCount={likesCount} />;
   });
   const onAddPost = () => {
-    dispatch(addPostActionCreator());
+    addPost();
   };
   const onPostChange = (event) => {
-    const action = updateNewPostTextActionCreator(event.target.value);
-    dispatch(action);
+    const text = event.target.value;
+    updateNewPostText(text);
   };
 
   return (

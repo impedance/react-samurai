@@ -1,9 +1,12 @@
 {
   "extends": [
-    "plugin: import/errors",
+    "plugin:import/errors",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "eslint:recommended", "prettier", "prettier/react"],
+    "eslint:recommended",
+    "prettier",
+    "prettier/react"
+  ],
   "rules": {
     "react/prop-types": 0,
     "no-console": 1

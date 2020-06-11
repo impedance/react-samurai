@@ -10,34 +10,19 @@ import { Settings } from "./components/Settings/Settings";
 import { News } from "./components/News/News";
 import { Friends } from "./components/Friends/Friends";
 import { Videos } from "./components/Videos/Videos";
+import { DialogsContainer } from "./components/Dialogs/DialogsContainer";
 
-export const App = ({ state, dispatch, updateNewMessageText, addMessage }) => {
+export const App = ({ state, dispatch, store }) => {
   return (
     <div className="app-wrapper">
       <Header />
       <Navbar friends={state.sidebar.friends} />
       <div className="app-wrapper-content">
-        <Route
-          path="/profile"
-          render={() => (
-            <Profile
-              dispatch={dispatch}
-              newPostText={state.profilePage.newPostText}
-              posts={state.profilePage.posts}
-            />
-          )}
-        />
+        <Route path="/profile" render={() => <Profile store={store} />} />
         <Route
           exact
           path="/dialogs"
-          render={() => (
-            <Dialogs
-              messages={state.dialogsPage.messages}
-              users={state.dialogsPage.users}
-              newMessageText={state.dialogsPage.newMessageText}
-              dispatch={dispatch}
-            />
-          )}
+          render={() => <DialogsContainer store={store} />}
         />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />

@@ -2,12 +2,14 @@ import React from "react";
 import cn from "./Dialogs.module.css";
 import { Message } from "./Message/Message";
 import { Dialog } from "./Dialog/Dialog";
-import {
-  addMessageActionCreator,
-  updateNewMessageActionCreator,
-} from "../../state";
 
-export const Dialogs = ({ newMessageText, messages, dispatch, users }) => {
+export const Dialogs = ({
+  newMessageText,
+  messages,
+  changeMessageText,
+  sendMessage,
+  users,
+}) => {
   const usersElements = users.map(({ name, id }) => {
     return <Dialog key={id} id={id} name={name} />;
   });
@@ -15,11 +17,11 @@ export const Dialogs = ({ newMessageText, messages, dispatch, users }) => {
     return <Message message={message} key={id} />;
   });
   const onChangeMessageText = (event) => {
-    const text = event.target.value;
-    dispatch(updateNewMessageActionCreator(text));
+    const body = event.target.value;
+    changeMessageText(body);
   };
   const onSendMessage = () => {
-    dispatch(addMessageActionCreator());
+    sendMessage();
   };
   return (
     <section className={cn.container}>
